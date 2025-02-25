@@ -3,7 +3,7 @@
 {% block content %}
 <div class="video-container">
     <video autoplay loop muted playsinline preload="auto">
-        <source src="{{ url_for('static', filename='videos/video2.mp4') }}" type="video/mp4">
+        <source src="{{ url_for('serve_video', filename='video2.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 

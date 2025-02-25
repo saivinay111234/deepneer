@@ -15,6 +15,10 @@ def get_db_connection():
 def serve_static(filename):
     return send_from_directory('static', filename)
 
+@app.route('/static/videos/<path:filename>')
+def serve_video(filename):
+    return send_from_directory('static/videos', filename, mimetype='video/mp4')
+
 @app.route('/')
 def home():
     return render_template('index.html')
