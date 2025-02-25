@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>📞 Contact Sai Vinay Thattukolla</h2>
+
+<div class="contact-container">
+    <!-- Left Side: Contact Information -->
+    <div class="contact-info">
+        <p><strong>Name:</strong> Sai Vinay Thattukolla</p>
+        <p><strong>Personal Website:</strong> <a href="https://saivinay111234.wixsite.com/myportfolio" target="_blank">Website</a></p>
+        <p><strong>Email:</strong> <a href="mailto:saivinayt.freelance@gmail.com">Email</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saivinaythattukolla/" target="_blank">linkedin.com/saivinay</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/saivinay111234" target="_blank">github.com/saivinay</a></p>
+    </div>
+
+    <!-- Right Side: Contact Form -->
+    <div class="contact-form">
+        <h3>📩 Send Me a Message</h3>
+        <form action="{{ url_for('contact') }}" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button type="submit">Send</button>
+        </form>
+
+        {% if message %}
+        <p style="color: green;">{{ message }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

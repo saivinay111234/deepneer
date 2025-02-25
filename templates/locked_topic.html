@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>🔒 {{ topic[1] }} - Coming Up Next</h2>
+<p>This topic will be unlocked soon. Redirecting in 5 seconds...</p>
+
+<script>
+    setTimeout(function(){
+        window.location.href = "{{ url_for('topics') }}";
+    }, 5000);
+</script>
+{% endblock %}

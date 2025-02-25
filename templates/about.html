@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>📖 About This Platform</h2>
+
+<div class="about-container">
+    <!-- Left Section: Vision and Description -->
+    <div class="about-text">
+        <h3>Our Mission</h3>
+        <p>🚀 Welcome to my free Data Science learning platform! My goal is to provide master’s level knowledge in Data Science for free to all students worldwide. They are many courses online that provides
+            knowledge in Data Science but they are not free. I want to provide the same knowledge for free. </p> <p>I want to make high-quality education accessible to everyone through video tutorials, hands-on Jupyter Notebooks, and interactive projects.
+        </p>
+
+        <br>
+
+        <h3>Why This Initiative?</h3>
+        <p>Many students struggle to afford a formal Data Science degree. With this platform, I aim to make high-quality education accessible to everyone through <b>video tutorials</b>, <b>hands-on Jupyter Notebooks</b>, and <b>interactive projects</b>.</p>
+
+        <br>
+        
+        <h3>What You’ll Learn</h3>
+        <ul>
+            <li>📊 Data Preprocessing & Feature Engineering</li>
+            <li>🤖 Machine Learning Algorithms (Supervised, Unsupervised, Reinforcement Learning)</li>
+            <li>📈 Deep Learning, NLP, and Generative AI</li>
+            <li>💡 Real-World AI Applications</li>
+            <li>📂 End-to-End Data Science Projects</li>
+        </ul>
+
+        <br>
+        
+        <h3>Join Me on This Journey!</h3>
+        <p>This platform is more than just lessons – it’s a community of learners, developers, and AI enthusiasts. Let’s democratize Data Science knowledge and **bridge the gap between theory and real-world applications**.</p>
+    </div>
+
+    <!-- Right Section: Image & Graphics -->
+    <div class="about-image">
+        <img src="{{ url_for('static', filename='IMAGES/img.gif') }}" alt="Data Science Animation">
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Topics</h2>
+<p>Click on a topic to expand and select an algorithm.</p>
+
+<!-- Machine Learning Table Structure -->
+<div class="topics-table">
+    <div class="category">
+        <h3>Supervised Learning</h3>
+        <div class="sub-category">
+            <h4>Regression</h4>
+            <ul>
+                {% for topic in topics %}
+                    {% if topic[2] == "Supervised Learning" and "Regression" in topic[1] %}
+                        <li><a href="{{ url_for('topic_detail', topic_id=topic[0]) }}">{{ topic[1] }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="sub-category">
+            <h4>Classification</h4>
+            <ul>
+                {% for topic in topics %}
+                    {% if topic[2] == "Supervised Learning" and "Classification" in topic[1] %}
+                        <li><a href="{{ url_for('topic_detail', topic_id=topic[0]) }}">{{ topic[1] }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>Unsupervised Learning</h3>
+        <div class="sub-category">
+            <h4>Clustering</h4>
+            <ul>
+                {% for topic in topics %}
+                    {% if topic[2] == "Unsupervised Learning" %}
+                        <li><a href="{{ url_for('topic_detail', topic_id=topic[0]) }}">{{ topic[1] }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+            {% for topic in topics %}
+                {% if topic[2] == "Reinforcement Learning" %}
+                    <li><a href="{{ url_for('topic_detail', topic_id=topic[0]) }}">{{ topic[1] }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

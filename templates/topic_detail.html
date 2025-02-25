@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ topic["name"] }}</h2>
+
+<!-- Embedded YouTube Video -->
+{% if topic["youtube_link"] %}
+    <iframe width="100%" height="400"
+        src="https://www.youtube.com/embed/{{ topic['youtube_link'].split('/')[-1] }}" 
+        title="{{ topic['name'] }}" frameborder="0" allowfullscreen>
+    </iframe>
+{% else %}
+    <p>📌 No video available for this topic.</p>
+{% endif %}
+
+<!-- Dynamic Algorithm Content -->
+<div class="algorithm-content left-align">
+    {{ content_html|safe }}
+</div>
+
+
+<!-- Notebook Download -->
+{% if topic["notebook_file"] %}
+    <a href="{{ url_for('static', filename='notebooks/' + topic['notebook_file']) }}" class="btn">
+        📥 Download Jupyter Notebook
+    </a>
+{% else %}
+    <p>🚧 No notebook available.</p>
+{% endif %}
+
+<!-- Chat Section -->
+<h3>💬 Ask Questions</h3>
+<div id="chat-box">
+    <ul id="chat-messages"></ul>
+    <input type="text" id="chat-input" placeholder="Type your question here..." />
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

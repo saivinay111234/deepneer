@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="video-container">
+    <video autoplay loop muted playsinline preload="auto">
+        <source src="{{ url_for('static', filename='videos/video2.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="video-overlay">
+        <h1>Welcome to the Future of Data Science</h1>
+        <p>Master Machine Learning, AI, and Data Analytics with Interactive Notebooks & Real-World Projects. – all for free!</p>
+        <a href="{{ url_for('topics') }}" class="btn">Start Learning</a>
+    </div>
+</div>
+{% endblock %}
