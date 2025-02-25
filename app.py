@@ -1,15 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, send_from_directory
 import sqlite3
 import os
 import markdown
 import mdx_math
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 def get_db_connection():
     conn = sqlite3.connect("database/topics.db")
     conn.row_factory = sqlite3.Row
     return conn
+
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('static', filename)
 
 @app.route('/')
 def home():
